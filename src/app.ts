@@ -1,4 +1,5 @@
-import { PageComponent } from './components/page.js';
+import { PageComponent } from './components/page/page.js';
+import { ImageComponent } from './components/page/item/image.js';
 
 class App {
     private readonly page: PageComponent;
@@ -8,6 +9,12 @@ class App {
         this.page = new PageComponent();
         // 새로운 페이지는 appRoot에 부착할 것임
         this.page.attachTo(appRoot);
+
+        const image = new ImageComponent(
+            'Image Title',
+            'https://cdn.pixabay.com/photo/2018/04/08/09/10/cherry-blossom-3300758_1280.jpg',
+        );
+        image.attachTo(appRoot, 'beforeend');
     }
 }
 
